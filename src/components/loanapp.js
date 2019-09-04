@@ -22,7 +22,7 @@ const LoanApp = React.forwardRef((props, ref) => {
         setEmail(e.target.value)
     }
 
-    let menuItems = Array.from(document.querySelectorAll('.menu-item'))
+    let menuItems = Array.from(window.document.querySelectorAll('.menu-item'))
 
     const toggleIsActive = (e) => {
         e.preventDefault()
