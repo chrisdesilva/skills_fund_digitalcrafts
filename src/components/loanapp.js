@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReactPixel from 'react-facebook-pixel'
 import marching from '../images/PeopleMarchColor.png'
@@ -6,6 +6,18 @@ import { UnmountClosed as Collapse } from 'react-collapse'
 import { hubspotFormId,loanUrlWithCode, programNameAndURL, selectAProgram } from '../constants/programInfo'
 
 const LoanApp = React.forwardRef((props, ref) => {
+
+    useEffect(() => {
+        let menuItems = Array.from(document.querySelectorAll('.menu-item'))
+
+        toggleIsActive = (e) => {
+            e.preventDefault()
+            menuItems.forEach(node => {
+                node.classList.remove('bg-primary', 'text-white')
+            })
+            e.currentTarget.classList.add('bg-primary', 'text-white')
+        }   
+    })
 
     const [email, setEmail] = useState('')
     const thankYouMsg = 'Thanks for applying! Your loan application has opened in a new window.'
@@ -20,16 +32,6 @@ const LoanApp = React.forwardRef((props, ref) => {
 
     const handleChange = e => {
         setEmail(e.target.value)
-    }
-
-    let menuItems = Array.from(window.document.querySelectorAll('.menu-item'))
-
-    const toggleIsActive = (e) => {
-        e.preventDefault()
-        menuItems.forEach(node => {
-            node.classList.remove('bg-primary', 'text-white')
-        })
-        e.currentTarget.classList.add('bg-primary', 'text-white')
     }
 
     const redirectLoanApp = () => {
