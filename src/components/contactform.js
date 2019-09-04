@@ -14,7 +14,6 @@ class ContactForm extends React.Component {
         email: "",
         identity: "",
         name: "",
-        school: schoolName,
         other: "",
         otherDescription: "",
         thankyou: false,
@@ -67,7 +66,7 @@ class ContactForm extends React.Component {
                     </div>
                     <div className="w-full mb-8">
                         <label className="block text-gray-700 text-sm font-bold" htmlFor="school">School Name</label>
-                        <input onChange={this.handleChange} name="school" value={this.state.school} className="shadow appearance-none border md:w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Name of your school" required/>
+                        <input onChange={this.handleChange} name="school" value={schoolName} className="shadow appearance-none border md:w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Name of your school" required/>
                     </div>
                     <div className="w-full mb-8 flex flex-col items-center">
                         <label className="block text-gray-700 text-sm font-bold" htmlFor="identity">I am a...</label>

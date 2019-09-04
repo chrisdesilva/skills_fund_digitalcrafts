@@ -1,32 +1,32 @@
-import logo from "../images/logo_placeholder.png" // add school logo to images folder and import here
+import logo from "../images/dc_logo.png" // add school logo to images folder and import here
 
 // ***** BEGIN GENERAL SCHOOL INFO ***** 
 
 export const schoolLogo = logo // go to header.js if height needs adjustment
 
-export const schoolName = "SCHOOL_NAME"
+export const schoolName = "DigitalCrafts"
 
-export const schoolURL = 'https://www.SCHOOLWEBSITE.com/' // update with url of school's website
+export const schoolURL = 'https://www.digitalcrafts.com/' // update with url of school's website
 
-export const headline = "Learn to CODE at SCHOOL NAME" // update headline as appropriate
+export const headline = "Learn to Code at DigitalCrafts" // update headline as appropriate
 
 export const leadContent = {
     header: "Your last step on the path toward changing your career",
-    paragraph: `*** EXAMPLE: ${schoolName} designs its programs to cover multiple stacks of programming languages to help graduates develop a diverse skill-set. ${schoolName} partners with Skills Fund to offer tuition and cost of living financing so more students like you can access their program.`
+    paragraph: `${schoolName} offers immersive and flex (part-time) programs to fit any schedule. ${schoolName} partners with Skills Fund to offer tuition and cost of living financing so more students like you can access their program.`
 }
 
 export const threeStepCardText = {
     step1: "",
     step2: {
         header: "select your program",
-        text: "***EXAMPLE: Choose between the Onsite Bootcamp, Online Full-Time Bootcamp, and Online Part-Time Bootcamp programs."
+        text: "Choose between the Full Stack Immersive and Full Stack Flex programs."
     },
     step3: `You'll be on your way to an exciting career in tech as part of ${schoolName}'s powerful network.`
 }
 
-export const netlifyFormName = 'SCHOOLNAME_contact'
+export const netlifyFormName = 'digitalcrafts_contact'
 
-export const GATracking = 'UA-TRACKING-ID'
+export const GATracking = 'UA-68312423-13'
 
 // ***** END GENERAL SCHOOL INFO ***** 
 
@@ -35,24 +35,20 @@ export const GATracking = 'UA-TRACKING-ID'
 
 export const programNameAndURL = [ // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
     {
-        name: "Program 1",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=LENDERCODE1" 
+        name: "Full Stack Immersive",
+        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCIE17" 
     },
     {
-        name: "Program 2",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=LENDERCODE2"
-    },
-    {
-        name: "Program 3",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=LENDERCODE3"
+        name: "Full Stack Flex",
+        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCFX17"
     }
 ]
 
-export const loanUrlWithCode = "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=LENDERCODE1" // if multiple programs, set lenderCode to first program option
+export const loanUrlWithCode = "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCIE17" // if multiple programs, set lenderCode to first program option
 
-export const hubspotFormId = "HUBSPOT_FORM_ID" // create Hubspot form, get form id after publishing
+export const hubspotFormId = "de12e640-2f91-44d9-bfb0-28197e6d0f7e" // create Hubspot form, get form id after publishing
 
-export const selectAProgram = "select_a_SCHOOLNAME_program" // update school name to match form field on Hubspot, *** change to "program_name" if only one program ***"
+export const selectAProgram = "select_a_digitalcrafts_program" // update school name to match form field on Hubspot, *** change to "program_name" if only one program ***"
 
 // ***** END LOAN APP INFO ***** 
 
@@ -60,43 +56,43 @@ export const selectAProgram = "select_a_SCHOOLNAME_program" // update school nam
 // ***** BEGIN TERMS AND FAQ INFO *****
 
 export const schoolInfo = {
-    interestRate36: 'X.XX%',
-    interestRate60: 'XX.XX%',
-    APRRange36: 'XX.XX - XX.XX%',
-    APRRange60: 'XX.XX - XX.XX%',
+    interestRate36: '8.99%',
+    interestRate60: '10.99%',
+    APRRange36: '11.08 - 11.69%',
+    APRRange60: '12.48 - 12.71%',
     interestOnly: [{
-        programName: 'PROGRAM NAME',
-        APR36: 'XX.XX%',
-        financeCharge36: '$X,XXX.XX',
-        IOPayment36: '$XX.XX',
-        FullMonthlyPayment36: '$XXX.XX',
-        APR60: 'XX.XX%',
-        financeCharge60: '$X,XXX.XX',
-        IOPayment60: '$XX.XX',
-        FullMonthlyPayment60: '$XXX.XX',
-        LoanExampleAmt: '$XX,XXX',
-        LoanExampleOFeeAmt: '$XXX',
-        LoanExampleAmtPlusOFee: '$XX,XXX',
-        programLength: 'X' // program length in months
+        programName: 'Full Stack Immersive',
+        APR36: '11.08%',
+        financeCharge36: '$2,371.56',
+        IOPayment36: '$77.91',
+        FullMonthlyPayment36: '$330.67',
+        APR60: '12.48%',
+        financeCharge60: '$4,135.64',
+        IOPayment60: '$95.25',
+        FullMonthlyPayment60: '$226.07',
+        LoanExampleAmt: '$10,000',
+        LoanExampleOFeeAmt: '$400',
+        LoanExampleAmtPlusOFee: '$10,400',
+        programLength: '4' // program length in months
     }],
     immediateRepayment: [{ 
-        programName: 'PROGRAM NAME',
-        APR36: 'XX.XX%',
-        financeCharge36: '$X,XXX.XX',
-        FullMonthlyPayment36: '$XXX.XX',
-        APR60: 'XX.XX%',
-        financeCharge60: '$X,XXX.XX',
-        FullMonthlyPayment60: '$XXX.XX',
-        LoanExampleAmt: '$XX,XXX',
-        LoanExampleOFeeAmt: '$XXX',
-        LoanExampleAmtPlusOFee: '$XX,XXX',
+        programName: 'Full Stack Flex',
+        APR36: '11.69%',
+        financeCharge36: '$1,808.87',
+        FullMonthlyPayment36: '$314.14',
+        APR60: '12.71%',
+        financeCharge60: '$3,385.95',
+        FullMonthlyPayment60: '$214.77',
+        LoanExampleAmt: '$9,500',
+        LoanExampleOFeeAmt: '$380',
+        LoanExampleAmtPlusOFee: '$9,880',
     }]
 }
 
 export const faq = {
     costOfLiving: true, // true if at least one program has cost of living included
-    costOfLivingPrograms: 'Program1 and Program2', // leave as empty string is cost of living availability is the same across all programs
-    multCostOfLivingPrograms: true, // true if costOfLivingPrograms string has more than one program
+    costOfLivingPrograms: 'Full Stack Immersive program', // leave as empty string is cost of living availability is the same across all programs
+    multCostOfLivingPrograms: false, // true if costOfLivingPrograms string has more than one program
     interestOnly: true, // true if interest-only payments are an option
     immediateRepayment: true, // true if immediate repayment is an option
     multipleLoanLengths: true, // true if 36 and 60 month options are both available
@@ -105,24 +101,24 @@ export const faq = {
     origFee: 0.04,
 
     // interest payment FAQ info
-    interestRate36: 'X.XX%',
-    interestRate60: 'XX.XX%',
-    APR36: 'XX.XX - XX.XX%',
-    APR60: 'XX.XX - XX.XX%',
-    IOPayment36: '$XX.XX',
-    IOPayment60: '$XX.XX',
+    interestRate36: '8.99%',
+    interestRate60: '10.99%',
+    APR36: '11.08%',
+    APR60: '12.48%',
+    IOPayment36: '$77.91',
+    IOPayment60: '$95.25',
 
     // max loan amounts by program for faq1
     loanRange: [
         {
-            programName: "PROGRAM 1",
-            maxAmount: "the max loan amount",
+            programName: "DigitalCrafts' Full Stack Immersive program",
+            maxAmount: "$13,950",
             col: true,
             colAmount: "$6,000"
         },
         {
-            programName: "PROGRAM 2",
-            maxAmount: "$10,750",
+            programName: "DigitalCrafts' Full Stack Flex program",
+            maxAmount: "$9,500",
             col: false,
             colAmount: "$6,000"
         },
@@ -167,7 +163,8 @@ export const paymentTable = {
             col: "--",
             max: "$13,495"
         },
-    ]
+    ],
+    show: false
 }
 
 // ***** END PAYMENT TABLE INFO *****

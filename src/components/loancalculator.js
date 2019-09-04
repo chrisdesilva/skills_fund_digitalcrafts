@@ -5,6 +5,7 @@ import {
     defaultLoanAmount, 
     faq,
     interestRates,
+    paymentTable,
     placeholder
 } from '../constants/programInfo'
 
@@ -16,15 +17,15 @@ const LoanCalculator = () => {
     const [interestPayment, setInterestPayment] = useState({ payment36: null, payment60: null })
     const [monthlyPayment, setMonthlyPayment] = useState({ payment36: null, payment60: null })
     const [loanType, setLoanType] = useState('0') // default to 0 for interest-only, 1 for immediate repayment
-    const [multiMetros, showMetros] = useState(true) // true if there are multiple metros that have DIFFERENT max loan amounts for the SAME PROGRAM
+    const [multiMetros, showMetros] = useState(false) // true if there are multiple metros that have DIFFERENT max loan amounts for the SAME PROGRAM
     const [loanInformation, setLoanInformation] = useState({ 
-        maxLoanAmt: 19495,
+        maxLoanAmt: 19950,
         loanTerm36: true, // only true if 36 month option is available
         loanTerm60: true, // only true if 60 month option is available
-        k: 5, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
+        k: 6, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
         '0': { // interest-only
-            apr36: 11.16, 
-            apr60: 12.51
+            apr36: 11.08, 
+            apr60: 12.48
         },
         '1': null
     })
@@ -32,60 +33,43 @@ const LoanCalculator = () => {
  const selectProgram = e => {
     let program = e.target.value
     switch(program) {
-        case "PROGRAM 1": // use this info for default case at bottom
+        case "Full Stack Immersive": // use this info for default case at bottom
             setLoanInformation({
-                maxLoanAmt: 19495,
+                maxLoanAmt: 19950,
                 loanTerm36: true,
                 loanTerm60: true,
                 '0': { 
-                    k: 5, 
-                    apr36: 11.16, 
-                    apr60: 12.51
-                },
-                '1': null
-            })
-            showMetros(true)
-            setLoanType('0')
-            break;
-        case "PROGRAM 2": 
-            setLoanInformation({
-                maxLoanAmt: 14995,
-                loanTerm36: true,
-                loanTerm60: true,
-                '0': { 
-                    k: 5, 
-                    apr36: 11.16, 
-                    apr60: 12.51
-                },
-                '1': null
-            })
-            showMetros(false)
-            setLoanType('0')
-            break;
-        case "PROGRAM 3": 
-            setLoanInformation({
-                maxLoanAmt: 9995,
-                loanTerm36: true,
-                loanTerm60: true,
-                '0': {
-                    k: 6,
-                    apr36: 11.08,
+                    k: 6, 
+                    apr36: 11.08, 
                     apr60: 12.48
                 },
                 '1': null
             })
-            showMetros(false)
             setLoanType('0')
+            break;
+        case "Full Stack Flex": 
+            setLoanInformation({
+                maxLoanAmt: 9500,
+                loanTerm36: true,
+                loanTerm60: true,
+                '0': null,
+                '1': {
+                    apr36: 11.69,
+                    apr60: 12.71
+                }
+            })
+            showMetros(false)
+            setLoanType('1')
             break;
         default: // info below needs to match info from first program
             setLoanInformation({
-                maxLoanAmt: 19495,
+                maxLoanAmt: 19950,
                 loanTerm36: true,
                 loanTerm60: true,
                 '0': { 
-                    k: 5, 
-                    apr36: 11.16, 
-                    apr60: 12.51
+                    k: 6, 
+                    apr36: 11.08, 
+                    apr60: 12.48
                 },
                 '1': null
             })
@@ -195,6 +179,10 @@ const LoanCalculator = () => {
         setInterestPayment({payment36: interest36, payment60: interest60})
     }
 
+    const clearCalcInput = () => {
+        showLoanOptions(false)
+    }
+
 
 
     return (
@@ -203,8 +191,8 @@ const LoanCalculator = () => {
                 <h3 className="text-center">Calculate Your Monthly Payments</h3>
 
                 {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
-                <p className="text-center">Choose the loan amount that works best for you. Borrow up to your metro's max (see table below) for the PROGRAM 1, up to $14,995 for the PROGRAM 2 Bootcamp tuition, and up to $9,995 for the PROGRAM 3 Bootcamp tuition.</p>
-                <LoanCalcPaymentTable />
+                <p className="text-center">Choose the loan amount that works best for you. Borrow up to $19,950 for DigitalCrafts' Full Stack Immersive program tuition & cost of living, or up to $9,500 for the Full Stack Flex tuition.</p>
+                {paymentTable.show && <LoanCalcPaymentTable />}
 
                 <div className="flex flex-col justify-center w-full md:w-1/3">
                 
@@ -213,9 +201,8 @@ const LoanCalculator = () => {
                     <>
                         <label className="text-xs text-center">Select a Program:</label>
                         <select className="rounded border-2 border-primary mb-5 bg-white text-primary text-center" onChange={selectProgram}>
-                            <option value="PROGRAM 1">PROGRAM 1</option>
-                            <option value="PROGRAM 2">PROGRAM 2</option>
-                            <option value="PROGRAM 3">PROGRAM 3</option>
+                            <option value="Full Stack Immersive">Full Stack Immersive</option>
+                            <option value="Full Stack Flex">Full Stack Flex</option>
                         </select>
                     </>
                 }
@@ -248,15 +235,18 @@ const LoanCalculator = () => {
                 }
 
                 {/* LOAN AMOUNT INPUT */}
-                <div className="flex flex-col justify-center items-center w-1/2 md:w-1/3">
-                    <label className="text-xs text-center">Enter a loan amount:</label>
-                    <input type="number" onChange={updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder={placeholder} />
-                </div>
+                    <div className="flex flex-col justify-center items-center w-1/2 md:w-1/3">
+                        <label className="text-xs text-center">Enter a loan amount:</label>
+                        <input type="number" onChange={updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder={placeholder} />
+                    </div>
 
                 <Collapse isOpened={minLoanAmt > loanAmount || loanAmount > loanInformation.maxLoanAmt}>
                     <p className="text-red-500 text-xs m-0 pb-4">Please enter a number between {minLoanAmt} and {loanInformation.maxLoanAmt}</p>
                 </Collapse>
-                <button className="opacityApply uppercase bg-primary p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={calculateMonthlyPayment}>Calculate payments</button>
+                {!loanOptions ? 
+                    <button className="opacityApply uppercase bg-primary p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={calculateMonthlyPayment}>Calculate payments</button> :
+                    <button className="opacityApply uppercase bg-black p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={clearCalcInput}>Enter New Amount</button>
+                }
 
                 <p className="m-0 text-center">Students may borrow from ${minLoanAmt} to ${loanInformation.maxLoanAmt}</p>
                 {loanType === "0" && <p className="text-xs text-center hidden lg:inline mb-2">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>}
