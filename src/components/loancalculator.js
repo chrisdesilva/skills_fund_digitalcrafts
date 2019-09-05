@@ -245,7 +245,7 @@ const LoanCalculator = () => {
                 </Collapse>
                 {!loanOptions ? 
                     <button className="opacityApply uppercase bg-primary p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={calculateMonthlyPayment}>Calculate payments</button> :
-                    <button className="opacityApply uppercase bg-black p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={clearCalcInput}>Enter New Amount</button>
+                    <button className="opacityApply uppercase bg-black p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={clearCalcInput}>Update Amount</button>
                 }
 
                 <p className="m-0 text-center">Students may borrow from ${minLoanAmt} to ${loanInformation.maxLoanAmt}</p>
