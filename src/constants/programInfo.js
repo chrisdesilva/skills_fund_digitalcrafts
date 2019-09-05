@@ -36,15 +36,15 @@ export const GATracking = 'UA-68312423-13'
 export const programNameAndURL = [ // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
     {
         name: "Full Stack Immersive",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCIE17" 
+        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCIE17",
+        active: false
     },
     {
         name: "Full Stack Flex",
-        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCFX17"
+        url: "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCFX17",
+        active: false
     }
 ]
-
-export const loanUrlWithCode = "https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFDCIE17" // if multiple programs, set lenderCode to first program option
 
 export const hubspotFormId = "de12e640-2f91-44d9-bfb0-28197e6d0f7e" // create Hubspot form, get form id after publishing
 

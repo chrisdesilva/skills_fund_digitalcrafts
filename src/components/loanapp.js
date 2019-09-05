@@ -1,29 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ReactGA from 'react-ga'
 import ReactPixel from 'react-facebook-pixel'
 import marching from '../images/PeopleMarchColor.png'
 import { UnmountClosed as Collapse } from 'react-collapse'
-import { hubspotFormId,loanUrlWithCode, programNameAndURL, selectAProgram } from '../constants/programInfo'
+import { hubspotFormId, programNameAndURL, selectAProgram } from '../constants/programInfo'
 
 const LoanApp = React.forwardRef((props, ref) => {
-
-    useEffect(() => {
-        let menuItems = Array.from(document.querySelectorAll('.menu-item'))
-
-        toggleIsActive = (e) => {
-            e.preventDefault()
-            menuItems.forEach(node => {
-                node.classList.remove('bg-primary', 'text-white')
-            })
-            e.currentTarget.classList.add('bg-primary', 'text-white')
-        }   
-    })
 
     const [email, setEmail] = useState('')
     const thankYouMsg = 'Thanks for applying! Your loan application has opened in a new window.'
     const [submitted, isSubmitted] = useState(false)
     const [disclaimers, toggleDisclaimers] = useState(false)
-    const [loanUrl, setLoanUrl] = useState(loanUrlWithCode) 
+    const [loanUrl, setLoanUrl] = useState(programNameAndURL[0].url)
+    const [programName, setProgramName] = useState(programNameAndURL[0].name)
+    const [active, setActive] = useState({
+        program0: false,
+        program1: false
+    })
+    const activeClass = "menu-item cursor-pointer border-2 rounded border-black text-center py-2 mb-2 bg-primary text-white" 
+    const inactiveClass = "menu-item cursor-pointer border-2 rounded border-black text-center py-2 mb-2" 
     const formName = `${props.schoolName}_apply_now program-apply flex flex-col items-center`
     const costOfLiving = true // set to false of cost of living is not available
     const multiplePrograms = true // set to false if there is only one program
@@ -33,6 +28,35 @@ const LoanApp = React.forwardRef((props, ref) => {
     const handleChange = e => {
         setEmail(e.target.value)
     }
+
+    const toggleIsActive = (program) => {
+        switch(program) {
+            case 0: 
+                setActive({
+                    program0: !active.program0,
+                    program1: false
+                })
+                setLoanUrl(programNameAndURL[0].url)
+                setProgramName(programNameAndURL[0].name)
+            break;
+            case 1: 
+                setActive({
+                    program0: false,
+                    program1: !active.program1
+                })
+                setLoanUrl(programNameAndURL[1].url)
+                setProgramName(programNameAndURL[1].name)
+            break;
+            default: 
+                setActive({
+                    program0: !active.program0,
+                    program1: false
+                })
+                setLoanUrl(programNameAndURL[0].url)
+                setProgramName(programNameAndURL[0].name)
+            break;
+        }
+    } 
 
     const redirectLoanApp = () => {
         window.open(loanUrl, "_blank", "noopener noreferrer")
@@ -78,7 +102,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             },
             {
             "name": `${selectAProgram}`,
-            "value": `${programNameAndURL.programName}`
+            "value": `${programName}`
             },
             {
             "name": "school",
@@ -134,16 +158,9 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <div className="w-full lg:w-1/2 px-8 lg:px-0">
                         <p className="text-center text-sm">Select a {props.schoolName} program</p>
                         
-                        {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programNameAndURL.active and handleProgramSelect */}
-                        {programNameAndURL.map(program => {
-                            return <p key={program.name} className="menu-item cursor-pointer border-2 rounded border-black text-center py-2 mb-2" 
-                                    onClick={e => {
-                                        setLoanUrl(program.url)
-                                        toggleIsActive(e)
-                                    }}>
-                                        {program.name}
-                                    </p>
-                        })}
+                        {/* WHEN ADDING AND REMOVING PROGRAMS, start with 0 and increment by 1 (0, 1, 2, 3...) for active.program#, toggleIsActive(#), and programNameAndURL(#) */}
+                        <p className={active.program0 ? activeClass : inactiveClass} onClick={() => toggleIsActive(0)}>{programNameAndURL[0].name}</p>
+                        <p className={active.program1 ? activeClass : inactiveClass} onClick={() => toggleIsActive(1)}>{programNameAndURL[1].name}</p>
                     </div>
                 }
                 <div className="hidden">
