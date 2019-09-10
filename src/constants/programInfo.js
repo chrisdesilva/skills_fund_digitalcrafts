@@ -26,7 +26,7 @@ export const threeStepCardText = {
 
 export const netlifyFormName = 'digitalcrafts_contact'
 
-export const GATracking = 'UA-68312423-13'
+export const GATracking = 'UA-68312423-1'
 
 // ***** END GENERAL SCHOOL INFO ***** 
 
