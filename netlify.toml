@@ -1,0 +1,7 @@
+[[redirects]]
+  from = "/go"
+  to = "/?utm_source=school&utm_medium=printedskfbrochure&utm_campaign=studentbrochure"
+
+[[redirects]]
+  from = "/accepted"
+  to = "/"
