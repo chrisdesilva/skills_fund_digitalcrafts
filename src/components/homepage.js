@@ -8,6 +8,7 @@ import ThreeSteps from '../components/threesteps'
 import LoanCalculator from '../components/loancalculator'
 import InfoButtonContainer from '../components/infobuttoncontainer'
 import LoanApp from './loanapp'
+import Reviews from './reviews'
 import LeadCaptureForm from './leadcaptureform'
 import ApplyFooter from './applyFooter'
 import { UnmountClosed as Collapse } from 'react-collapse'
@@ -116,6 +117,7 @@ class Homepage extends React.Component {
               pageUri={this.props.pageUri}
               schoolName={this.props.schoolName}
             />
+            <Reviews />
             <LeadCaptureForm 
               IP={this.props.IP}
               pageUri={this.props.pageUri}
