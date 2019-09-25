@@ -11,7 +11,7 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                 <div id="stepCard1" className="stepCards flex flex-col items-center m-2 lg:w-1/3 p-4 rounded shadow-2xl bg-white border-primary border-t-8">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-primary">1</p>
                     <h3 className="uppercase">explore your options</h3>
-                    <p>Use the loan calculator below to know exactly what you'll pay <strong>before</strong> you apply. You can borrow as little as $2,000 up to the full tuition{faq.costOfLiving && <span> and cost of living max</span>} for your progam.</p>
+                    <p>Use the loan calculator below to know exactly what you'll pay <strong>before</strong> you apply. You can borrow as little as $2,000 up to the full tuition{faq.costOfLiving && <span> and cost of living max</span>} for your program.</p>
                 </div>
 
                 {/* vvv Update this section as needed vvv */}
