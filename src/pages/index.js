@@ -5,13 +5,13 @@ import ReactPixel from 'react-facebook-pixel'
 import { GATracking, netlifyFormName, schoolName, schoolURL } from '../constants/programInfo'
 
 
-ReactGA.initialize(GATracking, {
-  debug: false,
-  titleCase: false,
-  gaOptions: {
-    siteSpeedSampleRate: 100
-  }
-})
+// ReactGA.initialize(GATracking, {
+//   debug: false,
+//   titleCase: false,
+//   gaOptions: {
+//     siteSpeedSampleRate: 100
+//   }
+// })
 
 const IndexPage = () => {
 

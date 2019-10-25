@@ -31,6 +31,7 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                         divClassName="flex justify-center mt-5"
                         text="apply now"
                         onClick={props.onClick}
+                        id="applyThreeSteps"
                     /> 
                 </div>
                 
