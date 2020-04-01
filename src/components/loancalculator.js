@@ -207,9 +207,10 @@ const LoanCalculator = () => {
 
         {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
         <p className="text-center">
-          Choose the loan amount that works best for you. Borrow up to $20,950
-          for DigitalCrafts' Full Stack Immersive program tuition & cost of
-          living, or up to $9,950 for the Full Stack Flex tuition.
+          Choose the loan amount that works best for you. Borrow up to $14,950
+          for DigitalCrafts' Full Stack Immersive program tuition and up to
+          $6,000 for cost of living, or up to $9,950 for the Full Stack Flex
+          tuition.
         </p>
         {paymentTable.show && <LoanCalcPaymentTable />}
 
