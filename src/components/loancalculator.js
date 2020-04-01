@@ -24,7 +24,7 @@ const LoanCalculator = () => {
   const [loanType, setLoanType] = useState("0") // default to 0 for interest-only, 1 for immediate repayment
   const [multiMetros, showMetros] = useState(false) // true if there are multiple metros that have DIFFERENT max loan amounts for the SAME PROGRAM
   const [loanInformation, setLoanInformation] = useState({
-    maxLoanAmt: 19950,
+    maxLoanAmt: 20950,
     loanTerm36: true, // only true if 36 month option is available
     loanTerm60: true, // only true if 60 month option is available
     k: 6, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
@@ -41,7 +41,7 @@ const LoanCalculator = () => {
     switch (program) {
       case "Full Stack Immersive": // use this info for default case at bottom
         setLoanInformation({
-          maxLoanAmt: 19950,
+          maxLoanAmt: 20950,
           loanTerm36: true,
           loanTerm60: true,
           "0": {
@@ -55,7 +55,7 @@ const LoanCalculator = () => {
         break
       case "Full Stack Flex":
         setLoanInformation({
-          maxLoanAmt: 9500,
+          maxLoanAmt: 9950,
           loanTerm36: true,
           loanTerm60: true,
           "0": null,
@@ -70,7 +70,7 @@ const LoanCalculator = () => {
       default:
         // info below needs to match info from first program
         setLoanInformation({
-          maxLoanAmt: 19950,
+          maxLoanAmt: 20950,
           loanTerm36: true,
           loanTerm60: true,
           "0": {
@@ -207,9 +207,9 @@ const LoanCalculator = () => {
 
         {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
         <p className="text-center">
-          Choose the loan amount that works best for you. Borrow up to $19,950
+          Choose the loan amount that works best for you. Borrow up to $20,950
           for DigitalCrafts' Full Stack Immersive program tuition & cost of
-          living, or up to $9,500 for the Full Stack Flex tuition.
+          living, or up to $9,950 for the Full Stack Flex tuition.
         </p>
         {paymentTable.show && <LoanCalcPaymentTable />}
 
