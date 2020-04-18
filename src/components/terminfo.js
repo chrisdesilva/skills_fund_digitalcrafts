@@ -1,28 +1,28 @@
-import React from 'react'
-import GeneralTerms from './generalterms'
-import InterestOnlyTerms from './interestonlyterms'
-import ImmRepaymentTerms from './immrepaymentterms'
-import { faq, schoolInfo } from '../constants/programInfo'
-
+import React from "react"
+import GeneralTerms from "./generalterms"
+import InterestOnlyTerms from "./interestonlyterms"
+import ImmRepaymentTerms from "./immrepaymentterms"
+import { faq, schoolInfo } from "../constants/programInfo"
 
 const TermInfo = props => (
-    <div className="text-center mx-2 lg:mx-10 p-8 shadow rounded">
-       <h2 className="py-4 text-center">More Info On Terms</h2>
-        <div>
-            <GeneralTerms 
-                multipleLoanLengths={faq.multipleLoanLengths}
-                multipleLoanTypes={faq.multipleLoanTypes}
-                interestRate36={schoolInfo.interestRate36}
-                interestRate60={schoolInfo.interestRate60}
-                IOAPR36={schoolInfo.interestOnly[0].APR36}
-                IOAPR60={schoolInfo.interestOnly[0].APR60}
-                IRAPR36={schoolInfo.immediateRepayment[0].APR36}
-                IRAPR60={schoolInfo.immediateRepayment[0].APR60}
-                APRRange36={schoolInfo.APRRange36}
-                APRRange60={schoolInfo.APRRange60}
-            />
+  <div className="text-center mx-2 lg:mx-10 p-8 shadow rounded">
+    <h2 className="py-4 text-center">More Info On Terms</h2>
+    <div>
+      <GeneralTerms
+        multipleLoanLengths={faq.multipleLoanLengths}
+        interestOnly={faq.interestOnly}
+        immediateRepayment={faq.immediateRepayment}
+        interestRate36={schoolInfo.interestRate36}
+        interestRate60={schoolInfo.interestRate60}
+        IOAPR36={schoolInfo.interestOnly[0].APR36}
+        IOAPR60={schoolInfo.interestOnly[0].APR60}
+        IRAPR36={schoolInfo.immediateRepayment[0].APR36}
+        IRAPR60={schoolInfo.immediateRepayment[0].APR60}
+        APRRange36={schoolInfo.APRRange36}
+        APRRange60={schoolInfo.APRRange60}
+      />
 
-            {schoolInfo.interestOnly.map(school => {
+      {/* {faq.interestOnly && schoolInfo.interestOnly.map(school => {
                 return <InterestOnlyTerms
                 programName={school.programName} 
                 loanExampleAmt={school.LoanExampleAmt}
@@ -41,7 +41,7 @@ const TermInfo = props => (
             />
             })}
 
-            {faq.multipleLoanTypes && schoolInfo.immediateRepayment.map(school => {
+            {faq.immediateRepayment && schoolInfo.immediateRepayment.map(school => {
                 return <ImmRepaymentTerms
                 programName={school.programName} 
                 loanExampleAmt={school.LoanExampleAmt}
@@ -58,9 +58,9 @@ const TermInfo = props => (
             />
             })
 
-            }
-        </div>
+            } */}
     </div>
+  </div>
 )
 
 export default TermInfo
