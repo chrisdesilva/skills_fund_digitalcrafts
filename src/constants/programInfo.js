@@ -96,7 +96,7 @@ export const schoolLogo = logo // go to header.js if height needs adjustment
 
 export const schoolName = "DigitalCrafts"
 
-export const schoolURL = "https://www.thinkful.com/" // update with url of school's website
+export const schoolURL = "https://www.digitalcrafts.com/" // update with url of school's website
 
 export const skfURL = "https://digitalcrafts.skills.fund" // update with Skills Fund url
 
