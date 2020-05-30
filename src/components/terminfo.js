@@ -2,24 +2,26 @@ import React from "react"
 import GeneralTerms from "./generalterms"
 import InterestOnlyTerms from "./interestonlyterms"
 import ImmRepaymentTerms from "./immrepaymentterms"
-import { faq, schoolInfo } from "../constants/programInfo"
+import { faq, schoolInfo, interestRateCards } from "../constants/programInfo"
 
 const TermInfo = props => (
   <div className="text-center mx-2 lg:mx-10 p-8 shadow rounded">
-    <h2 className="py-4 text-center">More Info On Terms</h2>
+    <h2 className="py-4 text-center">Loan Details</h2>
     <div>
       <GeneralTerms
         multipleLoanLengths={faq.multipleLoanLengths}
         interestOnly={faq.interestOnly}
         immediateRepayment={faq.immediateRepayment}
-        interestRate36={schoolInfo.interestRate36}
-        interestRate60={schoolInfo.interestRate60}
+        interestRate36={interestRateCards.interestOnly.int36}
+        interestRate60={interestRateCards.interestOnly.int60}
+        deferred36={interestRateCards.deferred.int36}
+        deferred60={interestRateCards.deferred.int60}
         IOAPR36={schoolInfo.interestOnly[0].APR36}
         IOAPR60={schoolInfo.interestOnly[0].APR60}
         IRAPR36={schoolInfo.immediateRepayment[0].APR36}
         IRAPR60={schoolInfo.immediateRepayment[0].APR60}
-        APRRange36={schoolInfo.APRRange36}
-        APRRange60={schoolInfo.APRRange60}
+        APRRange36={interestRateCards.APR36}
+        APRRange60={interestRateCards.APR60}
       />
 
       {/* {faq.interestOnly && schoolInfo.interestOnly.map(school => {

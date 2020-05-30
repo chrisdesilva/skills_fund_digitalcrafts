@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import ebook from "../images/WomanClimber_Color.png"
 import { schoolName, skfURL } from "../constants/programInfo"
 
 const LeadCaptureForm = props => {
@@ -38,14 +37,14 @@ const LeadCaptureForm = props => {
         },
         {
           name: "school",
-          value: `${schoolName}`,
+          value: `Coding Dojo`,
         },
       ],
       context: {
         hutk: hsCookie.hubspotutk,
-        pageUri: `${skfURL}`,
-        pageName: `${props.schoolName} | Skills Fund`,
-        ipAddress: `${props.IP}`,
+        pageUri: skfURL,
+        pageName: `${schoolName} | Skills Fund`,
+        ipAddress: props.IP,
       },
     }
 
@@ -61,66 +60,40 @@ const LeadCaptureForm = props => {
       .catch(error => console.log("error: ", error))
     showThankYou(true)
     setEmail("")
-    props.trackGA()
   }
 
   return (
-    <div className="flex flex-col items-center justify-center pt-8">
-      <h2>Get a Head Start</h2>
-      <div>
-        <img
-          className="h-64"
-          src={ebook}
-          alt="step-by-step guide to paying for your program"
-          loading="lazy"
+    <form
+      className="lead_capture program-apply flex flex-col items-center mb-0"
+      onSubmit={handleSubmit}
+    >
+      <input
+        className="border-2 rounded border-primary text-center py-2 mb-4 w-64"
+        type="email"
+        name="email"
+        placeholder="Enter your email address"
+        onChange={handleChange}
+        value={email}
+        required
+      />
+      <div className="hidden">
+        <input type="text" name="Stakeholder Type" value="Student" readOnly />
+        <input type="text" name="Lead Cycle" value="Lead Capture" readOnly />
+        <input type="text" name="School" value={schoolName} readOnly />
+      </div>
+      {thankYou ? (
+        <p className="text-center">
+          Thank you, your guide will be in your inbox soon!
+        </p>
+      ) : (
+        <input
+          className="cursor-pointer opacityApply uppercase bg-primary p-3 w-48 rounded-full shadow-lg text-white"
+          value="Send me the guide!"
+          id="leadCaptureSubmitBtn"
+          type="submit"
         />
-      </div>
-      <div className="mx-10 rounded flex flex-col pt-5 px-4 mt-5 justify-center items-center">
-        <p>We'll send you our step-by-step guide to paying for your program.</p>
-        <form
-          className="lead_capture program-apply flex flex-col items-center"
-          onSubmit={handleSubmit}
-        >
-          <label htmlFor="email">Email address</label>
-          <input
-            className="border-2 rounded border-primary text-center py-2 mb-4 w-64"
-            type="email"
-            name="email"
-            placeholder="Enter your email address"
-            onChange={handleChange}
-            value={email}
-            required
-          />
-          <div className="hidden">
-            <input
-              type="text"
-              name="Stakeholder Type"
-              value="Student"
-              readOnly
-            />
-            <input
-              type="text"
-              name="Lead Cycle"
-              value="Lead Capture"
-              readOnly
-            />
-            <input type="text" name="School" value={schoolName} readOnly />
-          </div>
-          {thankYou ? (
-            <p className="text-center">
-              Thank you, your guide will be in your inbox soon!
-            </p>
-          ) : (
-            <input
-              className="cursor-pointer opacityApply uppercase bg-primary p-3 mb-4 w-48 rounded-full shadow-lg text-white"
-              value="Send me the guide!"
-              id="leadCaptureSubmitBtn"
-              type="submit"
-            />
-          )}
-        </form>
-      </div>
-    </div>
+      )}
+    </form>
   )
 }
 

@@ -48,6 +48,66 @@ export const schoolInfo = {
   ],
 }
 
+export const interestRateCards = {
+  // 3 month program, 3 months grace for term details section
+  APR36: "8.64 - 17.21%",
+  APR60: "8.45 - 17.24%",
+  immediateRepayment: {
+    int36: "6.50 - 13.75%",
+    int60: "8.25 - 15.00%",
+    // APR36: "9.82% - 17.21%",
+    // APR60: "10.34% - 17.24%",
+  },
+  interestOnly: {
+    int36: "6.50 - 13.75%",
+    int60: "8.25 - 15.00%",
+    // APR36: "8.87 - 16.29%",
+    // APR60: "9.96 - 16.87%",
+  },
+  deferred: {
+    int36: "7.00 - 14.25%",
+    int60: "8.75 - 15.50%",
+    // APR36: "9.24 - 16.43%",
+    // APR60: "9.90 - 16.68%",
+  },
+}
+
+export const previewText = {
+  headline: "Simple. Flexible.",
+  subheadline:
+    "We offer loans tailored to your needs. Preview your options and select the right financing solution for you.",
+  // headline: "Simple. Clear.",
+  // subheadline:
+  //   "We offer a straightforward loan so you can focus on your program and transform your future.",
+  cards: [
+    {
+      heading: "Deferred Repayment",
+      body: "Make no payments while you study and for three months after.",
+    },
+    {
+      heading: "Interest Only",
+      body:
+        "Make low interest-only payments while you study and for three months after completing your program.",
+    },
+    {
+      heading: "Immediate Repayment",
+      body: "Start paying your loan back one month after your program begins.",
+    },
+    // {
+    //   heading: "36-Month Loan",
+    //   // body:
+    //   //   "Pay off your loan faster. Start paying your loan back one month after your program begins, and make 36 monthly payments until your loan is repaid.",
+    //   body:
+    //     "Start paying your loan back one month after your program begins, and make 36 monthly payments until your loan is repaid.",
+    // },
+    // {
+    //   heading: "60-Month Loan",
+    //   body:
+    //     "Make smaller monthly payments. Start paying your loan back one month after your program begins, and make 60 monthly payments until your loan is repaid.",
+    // },
+  ],
+}
+
 export const faq = {
   // faq section
   costOfLiving: true, // true if at least one program has cost of living included

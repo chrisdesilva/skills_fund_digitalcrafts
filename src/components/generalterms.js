@@ -24,7 +24,7 @@ const GeneralTerms = props => (
           <tr>
             <td className="text-center">Cosigners</td>
             <td className="text-center" colSpan="2">
-              Note: Up to 1 cosigner might be required in some instances.
+              Up to one cosigner allowed and, in some cases, required.
             </td>
           </tr>
           <tr>
@@ -39,15 +39,29 @@ const GeneralTerms = props => (
               className="text-center"
               colSpan={props.multipleLoanLengths ? undefined : "2"}
             >
-              Fixed
-              <br /> {props.interestRate36} interest rate, {props.APRRange36}{" "}
-              estimated APR
+              {/* Fixed */}
+              <br /> {props.interestRate36} interest rate
+              {props.interestOnly && " - Interest Only"}
+              {props.immediateRepayment && " - Immediate Repayment"}
+              {props.interestOnly && (
+                <>
+                  <br /> {props.deferred36} interest rate - Deferred
+                </>
+              )}
+              <br /> {props.APRRange36} estimated APR
             </td>
             {props.multipleLoanLengths && (
               <td className="text-center">
-                Fixed
-                <br /> {props.interestRate60} interest rate, {props.APRRange60}{" "}
-                estimated APR
+                {/* Fixed */}
+                <br /> {props.interestRate60} interest rate
+                {props.interestOnly && " - Interest Only"}
+                {props.immediateRepayment && " - Immediate Repayment"}
+                {props.interestOnly && (
+                  <>
+                    <br /> {props.deferred60} interest rate - Deferred
+                  </>
+                )}
+                <br /> {props.APRRange60} estimated APR
               </td>
             )}
           </tr>
@@ -57,10 +71,16 @@ const GeneralTerms = props => (
             </td>
             <td className="text-center bg-gray-100" colSpan="2">
               {props.interestOnly && (
-                <p className="mb-1">
-                  <strong>Interest-Only Loans:</strong> Interest not capitalized
-                  unless payments not made.
-                </p>
+                <>
+                  <p className="mb-1">
+                    <strong>Interest-Only Loans:</strong> Interest not
+                    capitalized unless payments not made.
+                  </p>
+                  <p className="mb-1">
+                    <strong>Deferred Repayment Loan:</strong> Interest
+                    capitalizes during program and grace period.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <span>
@@ -72,12 +92,18 @@ const GeneralTerms = props => (
           </tr>
           <tr>
             <td className="text-center">Payments Required While Enrolled?</td>
-            <td className="text-center bg-gray-100" colSpan="2">
+            <td className="text-center" colSpan="2">
               {props.interestOnly && (
-                <p className="mb-1">
-                  <strong>Interest-Only Loans:</strong> Monthly interest
-                  payments are required.
-                </p>
+                <>
+                  <p className="mb-1">
+                    <strong>Interest-Only Loans:</strong> Monthly interest
+                    payments are required.
+                  </p>
+                  <p className="mb-1">
+                    <strong>Deferred Repayment Loan:</strong> No monthly
+                    payments are required.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <span>
@@ -97,10 +123,16 @@ const GeneralTerms = props => (
                 repayment begins.
               </p>
               {props.interestOnly && (
-                <p className="mb-1">
-                  <strong>Interest-Only Loans:</strong> Interest-only payments
-                  are required while in school and in the grace period.
-                </p>
+                <>
+                  <p className="mb-1">
+                    <strong>Interest-Only Loans:</strong> Interest-only payments
+                    are required while in school and in the grace period.
+                  </p>
+                  <p className="mb-1">
+                    <strong>Deferred Repayment Loan:</strong> No payments are
+                    required while in school and in the grace period.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <span>
@@ -112,12 +144,18 @@ const GeneralTerms = props => (
           </tr>
           <tr>
             <td className="text-center">Post-Grace Period</td>
-            <td className="text-center bg-gray-100" colSpan="2">
+            <td className="text-center" colSpan="2">
               {props.interestOnly && (
-                <p className="mb-1">
-                  <strong>Interest-Only Loans:</strong> Full repayments
-                  (principal and interest) are required.
-                </p>
+                <>
+                  <p className="mb-1">
+                    <strong>Interest-Only Loans:</strong> Full repayments
+                    (principal and interest) are required.
+                  </p>
+                  <p className="mb-1">
+                    <strong>Deferred Repayment Loan:</strong> Full repayments
+                    (principal and interest) are required.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <span>
@@ -160,7 +198,7 @@ const GeneralTerms = props => (
           </tr>
           <tr>
             <td className="text-center">
-              Note: Up to 1 cosigner might be required in some instances.
+              Up to one cosigner allowed and, in some cases, required.
             </td>
           </tr>
           <tr>
@@ -176,8 +214,15 @@ const GeneralTerms = props => (
           </tr>
           <tr>
             <td className="text-center">
-              Fixed
-              <br /> {props.interestRate36} interest rate,
+              {/* Fixed */}
+              <br /> {props.interestRate36}
+              {props.interestOnly && " - Interest Only"}
+              {props.immediateRepayment && " and Immediate Repayment"}
+              {props.interestOnly && (
+                <>
+                  <br /> {props.deferred36} - Deferred
+                </>
+              )}
               <br /> {props.APRRange36} estimated APR
             </td>
           </tr>
@@ -189,10 +234,16 @@ const GeneralTerms = props => (
           <tr>
             <td className="text-center">
               {props.interestOnly && (
-                <p>
-                  <strong>Interest-Only Loans:</strong> Interest not capitalized
-                  unless payments not made.
-                </p>
+                <>
+                  <p>
+                    <strong>Interest-Only Loans:</strong> Interest not
+                    capitalized unless payments not made.
+                  </p>
+                  <p>
+                    <strong>Deferred Repayment Loan:</strong> Interest
+                    capitalizes during program and grace period.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <p>
@@ -210,10 +261,16 @@ const GeneralTerms = props => (
           <tr>
             <td className="text-center">
               {props.interestOnly && (
-                <p>
-                  <strong>Interest-Only Loans:</strong> Monthly interest
-                  payments are required.
-                </p>
+                <>
+                  <p>
+                    <strong>Interest-Only Loans:</strong> Monthly interest
+                    payments are required.
+                  </p>
+                  <p>
+                    <strong>Deferred Repayment Loan:</strong> No monthly
+                    payments are required.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <p>
@@ -235,10 +292,16 @@ const GeneralTerms = props => (
                 repayment begins.
               </p>
               {props.interestOnly && (
-                <p>
-                  <strong>Interest-Only Loans:</strong> Interest-only payments
-                  are required while in school and in the grace period.
-                </p>
+                <>
+                  <p>
+                    <strong>Interest-Only Loans:</strong> Interest-only payments
+                    are required while in school and in the grace period.
+                  </p>
+                  <p>
+                    <strong>Deferred Repayment Loan:</strong> No payments are
+                    required while in school and in the grace period.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <p>
@@ -256,10 +319,16 @@ const GeneralTerms = props => (
           <tr>
             <td className="text-center">
               {props.interestOnly && (
-                <p>
-                  <strong>Interest-Only Loans:</strong> Full repayments
-                  (principal and interest) are required.
-                </p>
+                <>
+                  <p>
+                    <strong>Interest-Only Loans:</strong> Full repayments
+                    (principal and interest) are required.
+                  </p>
+                  <p>
+                    <strong>Deferred Repayment Loan:</strong> Full repayments
+                    (principal and interest) are required.
+                  </p>
+                </>
               )}
               {props.immediateRepayment && (
                 <p>
@@ -289,7 +358,7 @@ const GeneralTerms = props => (
               </tr>
               <tr>
                 <td className="text-center">
-                  Note: Up to 1 cosigner might be required in some instances.
+                  Up to one cosigner allowed and, in some cases, required.
                 </td>
               </tr>
               <tr>
@@ -298,7 +367,7 @@ const GeneralTerms = props => (
                 </td>
               </tr>
               <tr>
-                <td className="text-center">5.0% of loan requested (1)</td>
+                <td className="text-center">5.0% of loan requested</td>
               </tr>
               <tr>
                 <td className="text-center font-bold bg-gray-100">
@@ -307,8 +376,15 @@ const GeneralTerms = props => (
               </tr>
               <tr>
                 <td className="text-center">
-                  Fixed
-                  <br /> {props.interestRate60} interest rate,
+                  {/* Fixed */}
+                  <br /> {props.interestRate60} interest rate
+                  {props.interestOnly && " - Interest Only"}
+                  {props.immediateRepayment && " and Immediate Repayment"}
+                  {props.interestOnly && (
+                    <>
+                      <br /> {props.deferred60} interest rate - Deferred
+                    </>
+                  )}
                   <br /> {props.APRRange60} estimated APR
                 </td>
               </tr>
@@ -320,10 +396,16 @@ const GeneralTerms = props => (
               <tr>
                 <td className="text-center">
                   {props.interestOnly && (
-                    <p>
-                      <strong>Interest-Only Loans:</strong> Interest not
-                      capitalized unless payments not made.
-                    </p>
+                    <>
+                      <p>
+                        <strong>Interest-Only Loans:</strong> Interest not
+                        capitalized unless payments not made.
+                      </p>
+                      <p>
+                        <strong>Deferred Repayment Loan:</strong> Interest
+                        capitalizes during program and grace period.
+                      </p>
+                    </>
                   )}
                   {props.immediateRepayment && (
                     <p>
@@ -341,10 +423,16 @@ const GeneralTerms = props => (
               <tr>
                 <td className="text-center">
                   {props.interestOnly && (
-                    <p>
-                      <strong>Interest-Only Loans:</strong> Monthly interest
-                      payments are required.
-                    </p>
+                    <>
+                      <p>
+                        <strong>Interest-Only Loans:</strong> Monthly interest
+                        payments are required.
+                      </p>
+                      <p>
+                        <strong>Deferred Repayment Loan:</strong> No monthly
+                        payments are required.
+                      </p>
+                    </>
                   )}
                   {props.immediateRepayment && (
                     <p>
@@ -368,11 +456,17 @@ const GeneralTerms = props => (
                     principal repayment begins.
                   </p>
                   {props.interestOnly && (
-                    <p>
-                      <strong>Interest-Only Loans:</strong> Interest-only
-                      payments are required while in school and in the grace
-                      period.
-                    </p>
+                    <>
+                      <p>
+                        <strong>Interest-Only Loans:</strong> Interest-only
+                        payments are required while in school and in the grace
+                        period.
+                      </p>
+                      <p>
+                        <strong>Deferred Repayment Loan:</strong> No payments
+                        are required while in school and in the grace period.
+                      </p>
+                    </>
                   )}
                   {props.immediateRepayment && (
                     <p>
@@ -391,10 +485,16 @@ const GeneralTerms = props => (
               <tr>
                 <td className="text-center">
                   {props.interestOnly && (
-                    <p>
-                      <strong>Interest-Only Loans:</strong> Full repayments
-                      (principal and interest) are required.
-                    </p>
+                    <>
+                      <p>
+                        <strong>Interest-Only Loans:</strong> Full repayments
+                        (principal and interest) are required.
+                      </p>
+                      <p>
+                        <strong>Deferred Repayment Loan:</strong> Full
+                        repayments (principal and interest) are required.
+                      </p>
+                    </>
                   )}
                   {props.immediateRepayment && (
                     <p>

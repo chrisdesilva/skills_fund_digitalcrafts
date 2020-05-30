@@ -49,8 +49,7 @@ const FAQ = () => {
                 {program.col ? (
                   <span>
                     You may also borrow up to {program.colAmount} for cost of
-                    living. See table above the loan calculator for a breakdown
-                    by location.
+                    living.
                   </span>
                 ) : (
                   <span>Cost of living is not available for this program.</span>
@@ -160,9 +159,10 @@ const FAQ = () => {
       <Collapse isOpened={q4} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           You have several options, including automated payments! After you
-          apply for a loan, we’ll help you set up your repayment account. About
-          one month after your program starts, you’ll make your first loan
-          payment.
+          apply for a loan, we’ll help you set up your repayment account.
+          Depending on your repayment plan, you’ll make your first payment one
+          month after your program starts or three months after your program
+          ends.
         </p>
         <p>
           You’ll make monthly payments until your loan is fully repaid, and
@@ -173,11 +173,7 @@ const FAQ = () => {
         </p>
         {faq.multipleLoanTypes && (
           <>
-            <p>
-              Skills Fund offers two repayment options. Check out the loan
-              calculator to decide which repayment option is the best fit for
-              you!
-            </p>
+            <p>Skills Fund offers three repayment options.</p>
             <ul>
               <li className="list-disc">
                 <strong>Interest-only</strong> loans allow you to hold on to
@@ -192,6 +188,11 @@ const FAQ = () => {
                 get started on repayment. You’ll start making full payments
                 about one month after your program starts.
               </li>
+              <li className="list-disc">
+                <strong>Deferred Repayment</strong> allows you to make no
+                payments while you’re in school and for three months after. Then
+                you’ll start making full payments (interest + principal).
+              </li>
             </ul>
           </>
         )}
@@ -202,14 +203,16 @@ const FAQ = () => {
             interest-only payments about one month after your program starts and
             continue those payments for three months after the program ends.
             After this interest-only period, you’ll start making full payments
-            (interest + principal).
+            (interest + principal). Skills Fund’s deferred repayment loans allow
+            you to make no payments during your training. You’ll start making
+            full payments three months after your program.
           </p>
         )}
         <p>
           Aspire and Launch are the loan servicers for Skills Fund’s loans. This
           means Aspire or Launch will collect your monthly payments during the
           repayment phase of your loan. All loans applied for{" "}
-          <strong>before June or before 9th, 2019</strong> will be serviced by
+          <strong>on or before June 9th, 2019</strong> will be serviced by
           Aspire. All loans applied for{" "}
           <strong>on or after June 10th, 2019</strong> will be serviced by
           Launch.{" "}
@@ -246,7 +249,7 @@ const FAQ = () => {
         </ul>
       </Collapse>
 
-      <div onClick={() => showq5(!q5)}>
+      {/* <div onClick={() => showq5(!q5)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -279,9 +282,9 @@ const FAQ = () => {
             Wednesday after program start.
           </p>
         )}
-      </Collapse>
+      </Collapse> */}
 
-      <div onClick={() => showq6(!q6)}>
+      {/* <div onClick={() => showq6(!q6)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -321,7 +324,7 @@ const FAQ = () => {
             visit our blog.
           </a>
         </p>
-      </Collapse>
+      </Collapse> */}
 
       <div onClick={() => showq7(!q7)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
@@ -340,9 +343,8 @@ const FAQ = () => {
           charged by our partner bank. Please see terms in "Term Details" above.
         </p>
         <p className="mb-0 pb-4">
-          <strong>Please note:</strong> This fee is already reflected in the APR
-          outlined above and in the loan calculator. Interested in learning more
-          about your interest rate vs. APR? Check out our blog post{" "}
+          Interested in learning more about your interest rate vs. APR? Check
+          out our blog post{" "}
           <a
             className="text-primary"
             target="_blank"
@@ -401,7 +403,8 @@ const FAQ = () => {
         <p>
           There are two ways to qualify for a Skills Fund loan: on your own, or
           with a cosigner. Cosigners can strengthen your application’s overall
-          credit health.{" "}
+          credit health. If you are concerned about your credit health, consider
+          adding a cosigner with strong credit health.{" "}
         </p>
         <p>
           If you decide to apply with a cosigner, we’ll evaluate them with the
