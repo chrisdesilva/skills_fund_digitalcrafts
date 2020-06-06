@@ -7,6 +7,7 @@ import CookieBanner from "../components/cookieBanner"
 import Banner from "../components/banner"
 import LeadContent from "../components/leadcontent"
 import ThreeSteps from "../components/threesteps"
+import LoanCalculator from "../components/loancalculator"
 import InfoButtonContainer from "../components/infobuttoncontainer"
 import LoanApp from "./loanapp"
 import Reviews from "./reviews"
@@ -26,7 +27,7 @@ class Homepage extends React.Component {
     super(props)
     this.state = {
       termInfo: false,
-      faq: false,
+      faq: true,
       eligibility: false,
       contact: false,
       popup: true,

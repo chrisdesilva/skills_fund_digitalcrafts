@@ -400,19 +400,15 @@ const FAQ = () => {
         </h3>
       </div>
       <Collapse isOpened={q9} springConfig={{ stiffness: 150, damping: 30 }}>
-        <p>
+        <p className="mb-0 pb-4">
           There are two ways to qualify for a Skills Fund loan: on your own, or
           with a cosigner. Cosigners can strengthen your application’s overall
-          credit health. If you are concerned about your credit health, consider
-          adding a cosigner with strong credit health.{" "}
+          credit health. In some cases, adding a cosigner can improve your
+          interest rate. If you are concerned about your credit health, consider
+          adding a cosigner with strong credit health to potentially improve
+          your interest rate.
         </p>
-        <p>
-          If you decide to apply with a cosigner, we’ll evaluate them with the
-          same underwriting criteria we use to evaluate you. You can also choose
-          to apply individually to begin, and if you receive a denial, you may
-          have the opportunity to add a cosigner to your original application.
-        </p>
-        <p className="mb-0 pb-4">
+        {/* <p className="mb-0 pb-4">
           Learn more about our{" "}
           <a
             className="font-bold text-primary"
@@ -432,7 +428,7 @@ const FAQ = () => {
           >
             finding the right cosigner.
           </a>
-        </p>
+        </p> */}
       </Collapse>
 
       <div onClick={() => showq10(!q10)}>
