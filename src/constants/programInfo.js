@@ -134,15 +134,27 @@ export const faq = {
   // max loan amounts by program for faq1
   loanRange: [
     {
-      programName: "Fullstack Flex",
+      programName: "Full Stack Flex",
       maxAmount: "$9,950",
       col: false,
       colAmount: "$6,000",
     },
     {
-      programName: "Fullstack Immersive",
+      programName: "Full Stack Immersive",
       maxAmount: "$14,950",
       col: true,
+      colAmount: "$6,000",
+    },
+    {
+      programName: "Full Stack Flex (Online)",
+      maxAmount: "$9,950",
+      col: false,
+      colAmount: "$6,000",
+    },
+    {
+      programName: "Full Stack Immersive (Online)",
+      maxAmount: "$14,950",
+      col: false,
       colAmount: "$6,000",
     },
   ],
@@ -202,7 +214,7 @@ export const moreThanSixPrograms = true // set to true if there are 7 or more pr
 export const programLoanInfo = [
   // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
   {
-    name: "Fullstack Flex",
+    name: "Full Stack Flex",
     url: "https://my.skills.fund/application?lenderCode=SFDCFX17",
     loanInfo: {
       // match loanInfo in first metro below
@@ -273,8 +285,151 @@ export const programLoanInfo = [
     ],
   },
   {
-    name: "Fullstack Immersive",
+    name: "Full Stack Immersive",
     url: "https://my.skills.fund/application?lenderCode=SFDCIE17", // $13,500 max tuition, no COL alert
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 20950,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 7,
+        apr36: 11.5,
+        apr60: 12.8,
+      },
+      "Immediate Repayment": {
+        apr36: 12.36,
+      },
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 20950,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 7,
+            apr36: 11.5,
+            apr60: 12.8,
+          },
+          "Immediate Repayment": {
+            apr36: 12.36,
+          },
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 5,
+            apr36: 11.16,
+            apr60: 12.51,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 3",
+        loanInfo: {
+          maxLoanAmt: 20545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 5,
+            apr36: 11.16,
+            apr60: 12.51,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Full Stack Flex (Online)",
+    url: "https://my.skills.fund/application?lenderCode=SFDCFSFO20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 9950,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 11,
+      },
+      "Immediate Repayment": {
+        apr36: 12.36,
+        apr60: 13.14,
+      },
+    },
+    defaultLoanType: "Immediate Repayment", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Immediate Repayment"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 9950,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 11,
+            apr36: 11.2,
+          },
+          "Immediate Repayment": {
+            apr36: 12.36,
+            apr60: 13.14,
+          },
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 5,
+            apr36: 11.16,
+            apr60: 12.51,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 3",
+        loanInfo: {
+          maxLoanAmt: 20545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 5,
+            apr36: 11.16,
+            apr60: 12.51,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Full Stack Immersive (Online)",
+    url: "https://my.skills.fund/application?lenderCode=SFDCFSIO20", // $13,500 max tuition, no COL alert
     loanInfo: {
       // match loanInfo in first metro below
       maxLoanAmt: 20950,
