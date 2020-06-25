@@ -37,7 +37,7 @@ const LeadCaptureForm = props => {
         },
         {
           name: "school",
-          value: `Coding Dojo`,
+          value: `${schoolName}`,
         },
       ],
       context: {
