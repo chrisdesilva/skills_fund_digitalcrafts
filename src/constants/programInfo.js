@@ -135,7 +135,7 @@ export const faq = {
   loanRange: [
     {
       programName: "Full Stack Flex",
-      maxAmount: "$9,950",
+      maxAmount: "$9,950 (up to $10,950 for the Seattle campus) ",
       col: false,
       colAmount: "$6,000",
     },
